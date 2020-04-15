@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import Header from "../components/Header";
+import { Header } from "../components";
 import literals from "../literals";
 
-const mapStateToProps = state => ({
+const mapStateToProps = () => ({
     homeUrl: literals.header.homeUrl,
     menu: literals.header.menu,
     buttonText: literals.header.buttonText

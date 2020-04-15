@@ -1,12 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import GlobalStyles from "./styles";
-import Header from "./containers/HeaderContainer";
+import GlobalStyles, { Content } from "./styles";
+import { Header, AddShareholder } from "./containers";
 
 export default () => (
     <Provider store={store}>
         <GlobalStyles />
         <Header />
+        <Content>
+            <AddShareholder />
+        </Content>
     </Provider>
 );

@@ -7,6 +7,7 @@ export const StyledWrapper = styled.div`
     height: 100%;
     margin: auto;
     padding: 10px;
+    flex-direction: ${({ flexDirection }) => flexDirection || "column"};
 
-    ${({ alignCenter }) => alignCenter && "align-items: center"}
+    ${({ alignCenter }) => alignCenter && "align-items: center"};
 `;

@@ -1,6 +1,9 @@
 import React from "react";
-import { StyledButton } from "./styles";
+import { StyledButton, PlusIcon } from "./styles";
 
-export default ({ text, secondary }) => (
-    <StyledButton secondary={secondary}>{text}</StyledButton>
+export default ({ text, secondary, large, plus }) => (
+    <StyledButton secondary={secondary} large={large} plus={plus}>
+        {plus && <PlusIcon />}
+        {text}
+    </StyledButton>
 );

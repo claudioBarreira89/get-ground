@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 
 import fontLight from "../assets/fonts/OpenSans-Light.ttf";
@@ -45,30 +45,26 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    ul {
-        list-style-type: none;
-    }
-      
-    p {
-        color: ${colors.grayDark};
-    }
-
 
     h1 {
-        color: ${colors.teal};
+        color: ${colors.blueDark};
+        font-size: 26px;
         font-weight: 400;
+        margin-bottom: 20px;
+        line-height: 44px;
     }
-  
+
     h2 {
-        font-size: 2.125rem;
-        padding: 0 1rem;
+        color: ${colors.blueDark};
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        line-height: 44px;
     }
-  
-    h3 {
-        font-size: 1.5rem;
-        padding: 0 .5rem;
-        font-weight: 300;
-    }
+`;
+
+export const Content = styled.div`
+    padding: 50px 0 20px;
 `;
 
 export { default as colors } from "./colors";

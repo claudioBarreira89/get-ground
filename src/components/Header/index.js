@@ -8,7 +8,7 @@ const Header = ({ menu, homeUrl, buttonText }) => {
     return (
         <StyledHeader>
             <div>
-                <Wrapper alignCenter>
+                <Wrapper alignCenter flexDirection="row">
                     <Column>
                         <a href={homeUrl}>
                             <StyledLogo alt="" src={logo} />
