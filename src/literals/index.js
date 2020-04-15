@@ -21,6 +21,7 @@ export default {
     addShareholder: {
         title: "Shareholder details",
         addShareholderTitle: "Add a Shareholder",
+        shareholderTitle: "Shareholder",
         messageBox: [
             "You can have a maximum of 8 shareholders (including you). All shareholders need to be people not companies.",
             "Please note that each of your shareholders will need to create an account on getGround. They must also be over 18."
@@ -29,7 +30,7 @@ export default {
             firstName: "Shareholders first name",
             lastName: "Shareholders last name",
             email: "Email",
-            button: "Add shareholder"
+            button: { add: "Add shareholder", update: "Update shareholder" }
         }
     }
 };

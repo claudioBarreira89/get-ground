@@ -1,6 +1,6 @@
 import React from "react";
 import { Wrapper, MessageBox } from "../../elements";
-import { Paragraph } from "./styles";
+import { Paragraph, Hr } from "./styles";
 import AddShareholderForm from "./AddShareholderForm";
 
 export default class AddShareholder extends React.Component {
@@ -8,21 +8,40 @@ export default class AddShareholder extends React.Component {
         const {
             pageTitle,
             addShareholderTitle,
+            shareholderTitle,
             messageText = [],
-            form
+            form,
+            addShareholder,
+            updateShareholder,
+            shareholders
         } = this.props;
         const message = messageText.map((text, i) => (
             <Paragraph key={i}>{text}</Paragraph>
         ));
-        console.log(form);
+
         return (
             <Wrapper>
                 <h1>{pageTitle}</h1>
                 <MessageBox text={message} />
-                <AddShareholderForm
-                    title={addShareholderTitle}
-                    formText={form}
-                />
+
+                {shareholders.length < 8 && (
+                    <AddShareholderForm
+                        formText={form}
+                        title={addShareholderTitle}
+                        addShareholder={addShareholder}
+                    />
+                )}
+                {shareholders.length > 0 && <Hr />}
+                {shareholders.map((shareholder, i) => (
+                    <AddShareholderForm
+                        key={i}
+                        id={shareholder.id}
+                        formText={form}
+                        title={shareholderTitle}
+                        shareholder={shareholder}
+                        updateShareholder={updateShareholder}
+                    />
+                ))}
             </Wrapper>
         );
     }

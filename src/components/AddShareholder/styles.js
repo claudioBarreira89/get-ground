@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../styles";
 
 export const Paragraph = styled.p`
     margin-bottom: 20px;
@@ -19,4 +20,9 @@ export const ButtonWrapper = styled.div`
 
     align-items: flex-end;
     justify-content: center;
+`;
+
+export const Hr = styled.hr`
+    margin: 20px 0;
+    border-color: ${colors.gray};
 `;

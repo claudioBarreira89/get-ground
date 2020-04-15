@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { colors } from "../../styles";
 
 export const StyledButton = styled.button`
-position: relative;    
-height: 30px;
+    position: relative;    
+    height: 30px;
     padding: 8px 14px;
     border-radius: 17px;
     line-height: 1;
     outline: 0;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    :hover {
+        background-color: ${colors.grayMedium};
+    }
 
     ${({ plus }) =>
         plus &&
@@ -23,12 +28,29 @@ height: 30px;
         background-color: transparent;
         border: 1px solid ${colors.white};
         color: ${colors.white};
+
+        :hover {
+            background-color: ${colors.white};
+            color: ${colors.greenLight};
+        }
         `
             : `
         background-color: ${colors.gray};
         border: 0;
         color: ${colors.black};
         `}
+    
+    :active {
+        opacity: .4;
+    }
+
+
+    ${({ disabled }) =>
+        disabled &&
+        `
+        pointer-events: none;
+        opacity: .3;
+    `}
 `;
 
 export const PlusIcon = styled.div`
