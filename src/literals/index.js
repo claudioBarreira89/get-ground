@@ -45,7 +45,9 @@ export default {
             shares: "SHARES %",
             director: "DIRECTOR"
         },
-        director: ["YES", "NO"]
+        director: ["YES", "NO"],
+        error:
+            "In total shareholders can only have a percentage that adds up to 100%, please review these details"
     },
     footer: {
         next: "Next",

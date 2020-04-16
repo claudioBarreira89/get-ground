@@ -23,7 +23,8 @@ export default class CompanyShare extends React.Component {
             shareholders,
             director,
             labels,
-            setPage
+            setPage,
+            errorMessage
         } = this.props;
 
         return (
@@ -35,6 +36,7 @@ export default class CompanyShare extends React.Component {
                     <ShareholdersTable
                         labels={labels}
                         directorInput={director}
+                        errorMessage={errorMessage}
                         shareholders={shareholders}
                         handleChange={this.handleChange}
                         handleClick={this.handleClick}

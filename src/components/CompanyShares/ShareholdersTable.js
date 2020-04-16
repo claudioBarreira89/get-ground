@@ -14,7 +14,8 @@ export default class ShareholdersTable extends React.Component {
             handleChange,
             handleClick,
             directorInput,
-            labels
+            labels,
+            errorMessage
         } = this.props;
         return (
             <ShareholdersTableWrapper>
@@ -36,6 +37,7 @@ export default class ShareholdersTable extends React.Component {
                         handleChange={handleChange}
                         handleClick={handleClick}
                         directorInput={directorInput}
+                        errorMessage={errorMessage}
                     />
                 ))}
             </ShareholdersTableWrapper>

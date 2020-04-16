@@ -4,7 +4,8 @@ import {
     StyledName,
     StyledEmail,
     InputWrapper,
-    StyledInput
+    StyledInput,
+    ErrorBlock
 } from "./styles";
 import { Column } from "../../elements";
 
@@ -14,7 +15,8 @@ export default ({
     last,
     handleChange,
     handleClick,
-    directorInput
+    directorInput,
+    errorMessage
 }) => (
     <StyledRow first={first} last={last}>
         <Column flex={1}>
@@ -25,7 +27,7 @@ export default ({
         </Column>
         <Column>
             <InputWrapper>
-                <StyledInput>
+                <StyledInput error={shareholder.error}>
                     <input
                         onChange={e => {
                             handleChange(
@@ -50,5 +52,10 @@ export default ({
                 </StyledInput>
             </InputWrapper>
         </Column>
+        {shareholder.error && (
+            <ErrorBlock>
+                <Column>{errorMessage}</Column>
+            </ErrorBlock>
+        )}
     </StyledRow>
 );

@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
     message: literals.companyShares.messageBox,
     addShareholderButton: literals.companyShares.button,
     labels: literals.companyShares.labels,
-    director: literals.companyShares.director
+    director: literals.companyShares.director,
+    errorMessage: literals.companyShares.error
 });
 
 const mapDispatchToProps = { updateShareholder, setPage };

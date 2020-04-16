@@ -10,7 +10,8 @@ export const initialState = {
             lastName: "Barreira",
             email: "claudio.barreira@shares.com",
             share: 0,
-            director: true
+            director: true,
+            error: false
         },
         {
             id: 11,
@@ -18,7 +19,8 @@ export const initialState = {
             lastName: "Barreira",
             email: "claudio.barreira@shares.com",
             share: 0,
-            director: false
+            director: false,
+            error: false
         },
         {
             id: 12,
@@ -26,7 +28,8 @@ export const initialState = {
             lastName: "Doe",
             email: "john.doe@shares.com",
             share: 0,
-            director: false
+            director: false,
+            error: false
         }
     ],
     ids: 1
@@ -46,6 +49,7 @@ export const reducer = (state = initialState, action) => {
                         ...payload,
                         share: 0,
                         director: false,
+                        error: false,
                         id
                     }
                 ],
@@ -53,14 +57,27 @@ export const reducer = (state = initialState, action) => {
             };
         }
         case actionTypes.UPDATE_SHAREHOLDER: {
+            const total =
+                state.shareholders.reduce(
+                    (acc, shareholder) =>
+                        (acc +=
+                            shareholder.id === payload.id
+                                ? 0
+                                : shareholder.share),
+                    0
+                ) + payload.share;
+
             const shareholders = state.shareholders.map(shareholder => {
                 if (shareholder.id === payload.id) {
                     return {
                         ...shareholder,
-                        ...payload
+                        ...payload,
+                        error: total > 100
                     };
                 } else {
-                    return shareholder;
+                    return total <= 100
+                        ? { ...shareholder, error: false }
+                        : shareholder;
                 }
             });
 
@@ -83,7 +100,6 @@ export const reducer = (state = initialState, action) => {
             };
         }
         case actionTypes.SET_PAGE: {
-            console.log(payload);
             return {
                 ...state,
                 activePage: payload

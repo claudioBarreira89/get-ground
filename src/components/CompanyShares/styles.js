@@ -26,6 +26,7 @@ export const ColumnTitle = styled.div`
 
 export const StyledRow = styled.div`
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     padding: 15px 20px 15px 40px;
 
@@ -58,6 +59,14 @@ export const StyledInput = styled.div`
     border-radius: 5px;
     background: ${colors.gradientOrange};
 
+    ${({ error }) =>
+        error &&
+        `
+        color: ${colors.error};
+        background: ${colors.white};
+        border: 1px solid ${colors.error};
+    `}
+
     input {
         text-align: center;
     }
@@ -82,4 +91,14 @@ export const StyledInput = styled.div`
         color: ${colors.blueDark};
         font-weight: 600;
     }
+`;
+
+export const ErrorBlock = styled.div`
+    flex: 100%;
+    padding: 14px 35px;
+    margin-top: 20px;
+    line-height: 24px;
+    background-color: ${colors.errorLight};
+    color: ${colors.error};
+    border: 1px solid ${colors.error};
 `;
