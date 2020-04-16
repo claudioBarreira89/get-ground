@@ -61,6 +61,12 @@ const GlobalStyles = createGlobalStyle`
         margin-bottom: 20px;
         line-height: 44px;
     }
+
+    h3 {
+        color: ${colors.blueDark};
+        font-size: 20px;
+        font-weight: 600;
+    }
 `;
 
 export const Content = styled.div`

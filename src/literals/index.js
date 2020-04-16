@@ -38,7 +38,14 @@ export default {
     companyShares: {
         title: "Shareholder details",
         messageBox:
-            "Now it is time to divide company shares between your shareholders and specify which shareholders are directors."
+            "Now it is time to divide company shares between your shareholders and specify which shareholders are directors.",
+        button: "Add shareholder",
+        labels: {
+            shareholders: "SHAREHOLDERS",
+            shares: "SHARES %",
+            director: "DIRECTOR"
+        },
+        director: ["YES", "NO"]
     },
     footer: {
         next: "Next",

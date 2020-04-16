@@ -3,7 +3,32 @@ import { actionTypes } from "./actions";
 export const initialState = {
     activePage: 0,
     pages: ["addShareholders", "companyShares"],
-    shareholders: [],
+    shareholders: [
+        {
+            id: 10,
+            firstName: "Claudio",
+            lastName: "Barreira",
+            email: "claudio.barreira@shares.com",
+            share: 0,
+            director: true
+        },
+        {
+            id: 11,
+            firstName: "Claudio",
+            lastName: "Barreira",
+            email: "claudio.barreira@shares.com",
+            share: 0,
+            director: false
+        },
+        {
+            id: 12,
+            firstName: "John",
+            lastName: "Doe",
+            email: "john.doe@shares.com",
+            share: 0,
+            director: false
+        }
+    ],
     ids: 1
 };
 
@@ -19,6 +44,8 @@ export const reducer = (state = initialState, action) => {
                     ...state.shareholders,
                     {
                         ...payload,
+                        share: 0,
+                        director: false,
                         id
                     }
                 ],
@@ -28,7 +55,10 @@ export const reducer = (state = initialState, action) => {
         case actionTypes.UPDATE_SHAREHOLDER: {
             const shareholders = state.shareholders.map(shareholder => {
                 if (shareholder.id === payload.id) {
-                    return payload;
+                    return {
+                        ...shareholder,
+                        ...payload
+                    };
                 } else {
                     return shareholder;
                 }
@@ -50,6 +80,13 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 activePage: state.pages[page] ? page : state.activePage
+            };
+        }
+        case actionTypes.SET_PAGE: {
+            console.log(payload);
+            return {
+                ...state,
+                activePage: payload
             };
         }
         default:
