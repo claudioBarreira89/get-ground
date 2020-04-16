@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const Content = styled.div`
-    padding: 50px 0 20px;
+    padding: 50px 0 70px;
 `;
 
 export { default as colors } from "./colors";

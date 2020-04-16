@@ -8,6 +8,7 @@ export const StyledWrapper = styled.div`
     margin: auto;
     padding: 10px;
     flex-direction: ${({ flexDirection }) => flexDirection || "column"};
+    justify-content: ${({ justifyContent }) => justifyContent || "flex-start"};
 
     ${({ alignCenter }) => alignCenter && "align-items: center"};
 `;

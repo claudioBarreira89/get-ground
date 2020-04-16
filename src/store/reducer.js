@@ -1,6 +1,8 @@
 import { actionTypes } from "./actions";
 
 export const initialState = {
+    activePage: 0,
+    pages: ["addShareholders", "companyShares"],
     shareholders: [],
     ids: 1
 };
@@ -35,6 +37,19 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 shareholders
+            };
+        }
+        case actionTypes.CHANGE_PAGE: {
+            let page;
+            if (payload) {
+                page = state.activePage + 1;
+            } else {
+                page = state.activePage - 1;
+            }
+
+            return {
+                ...state,
+                activePage: state.pages[page] ? page : state.activePage
             };
         }
         default:

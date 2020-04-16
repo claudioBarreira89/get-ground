@@ -4,16 +4,16 @@ import { colors } from "../../styles";
 export const StyledButton = styled.button`
     position: relative;    
     height: 30px;
-    padding: 8px 14px;
+    padding: 0px 14px;
     border-radius: 17px;
     line-height: 1;
     outline: 0;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
-    :hover {
-        background-color: ${colors.grayMedium};
-    }
+    ${({ strong }) => strong && `font-size: 14px; font-weight: 600;`}
+
+   
 
     ${({ plus }) =>
         plus &&
@@ -21,24 +21,49 @@ export const StyledButton = styled.button`
         text-align: left; 
         padding-left: 45px;
     `}
-    ${({ large }) => large && " min-width: 220px;"}
-    ${({ secondary }) =>
-        secondary
-            ? `
-        background-color: transparent;
-        border: 1px solid ${colors.white};
-        color: ${colors.white};
-
-        :hover {
-            background-color: ${colors.white};
-            color: ${colors.greenLight};
+    ${({ large, medium }) => {
+        if (large) {
+            return "min-width: 220px;";
+        } else if (medium) {
+            return "min-width: 133px;";
         }
-        `
-            : `
-        background-color: ${colors.gray};
-        border: 0;
-        color: ${colors.black};
-        `}
+    }}
+    ${({ secondary, colored }) => {
+        if (secondary) {
+            return `
+            background-color: transparent;
+            border: ${
+                colored
+                    ? `2px solid ${colors.blueDark}`
+                    : `1px solid ${colors.white}`
+            };
+            color: ${colored ? colors.blueDark : colors.white};
+    
+            :hover {
+                background-color: ${colored ? colors.blueDark : colors.white};
+                color: ${colored ? colors.white : colors.greenLight};
+            }
+            `;
+        } else {
+            return `
+            ${
+                colored
+                    ? `background: ${colors.gradient};`
+                    : `background-color: ${colors.gray};`
+            }
+            border: 0;
+            color: ${colored ? colors.white : colors.black};
+
+            :hover {
+                ${
+                    colored
+                        ? `opacity: .7;`
+                        : `background-color: ${colors.grayMedium};`
+                }
+            }
+            `;
+        }
+    }}
     
     :active {
         opacity: .4;

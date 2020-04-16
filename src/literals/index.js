@@ -1,6 +1,8 @@
 export default {
+    generic: {
+        homeUrl: "https://www.getground.co.uk/"
+    },
     header: {
-        homeUrl: "https://www.getground.co.uk/",
         menu: [
             {
                 title: "What we do",
@@ -32,5 +34,14 @@ export default {
             email: "Email",
             button: { add: "Add shareholder", update: "Update shareholder" }
         }
+    },
+    companyShares: {
+        title: "Shareholder details",
+        messageBox:
+            "Now it is time to divide company shares between your shareholders and specify which shareholders are directors."
+    },
+    footer: {
+        next: "Next",
+        back: "Back"
     }
 };
