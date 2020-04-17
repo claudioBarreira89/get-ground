@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Footer } from "../components";
-import { changePage } from "../store/actions";
+import { changePage, setPage } from "../store/actions";
 import literals from "../literals";
 
 const mapStateToProps = state => ({
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    changePage
+    changePage,
+    setPage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

@@ -2,10 +2,17 @@ import React from "react";
 import { Wrapper, Column, Button } from "../../elements";
 import { StyledFooter } from "./styles";
 
-const Footer = ({ next, back, changePage, currentPage, homeUrl }) => {
+const Footer = ({ next, back, changePage, setPage, currentPage, homeUrl }) => {
     return (
         <StyledFooter>
             <Wrapper flexDirection={"row"} justifyContent={"flex-end"}>
+                <Column flex={1}>
+                    <Button
+                        medium
+                        text="Extras"
+                        handleClick={() => setPage(2)}
+                    />
+                </Column>
                 <Column>
                     <Button
                         text={back}
@@ -15,7 +22,7 @@ const Footer = ({ next, back, changePage, currentPage, homeUrl }) => {
                         colored
                         handleClick={() => {
                             if (currentPage === 0) {
-                                window.location = homeUrl;
+                                window.location.assign(homeUrl);
                             } else {
                                 changePage(false);
                             }

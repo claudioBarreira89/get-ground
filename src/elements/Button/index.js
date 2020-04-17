@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledButton, PlusIcon } from "./styles";
 
-export default ({
+const Button = ({
     text,
     secondary,
     colored,
@@ -26,3 +26,5 @@ export default ({
         {text}
     </StyledButton>
 );
+
+export default Button;

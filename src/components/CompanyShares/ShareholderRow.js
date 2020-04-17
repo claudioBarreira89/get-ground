@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import { Column } from "../../elements";
 
-export default ({
+const ShareholderRow = ({
     shareholder,
     first,
     last,
@@ -30,11 +30,7 @@ export default ({
                 <StyledInput error={shareholder.error}>
                     <input
                         onChange={e => {
-                            handleChange(
-                                e.target.value,
-                                shareholder.id,
-                                e.target
-                            );
+                            handleChange(e.target.value, shareholder.id);
                         }}
                         value={shareholder.share === 0 ? "" : shareholder.share}
                     />
@@ -44,6 +40,7 @@ export default ({
                         onClick={() =>
                             handleClick(shareholder.id, !shareholder.director)
                         }
+                        dataTestId={"directorText"}
                     >
                         {shareholder.director
                             ? directorInput[0]
@@ -53,9 +50,11 @@ export default ({
             </InputWrapper>
         </Column>
         {shareholder.error && (
-            <ErrorBlock>
+            <ErrorBlock dataTestId={"errorBlock"}>
                 <Column>{errorMessage}</Column>
             </ErrorBlock>
         )}
     </StyledRow>
 );
+
+export default ShareholderRow;

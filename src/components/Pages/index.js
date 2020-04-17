@@ -1,10 +1,12 @@
 import React from "react";
 import { AddShareholder, CompanyShares } from "../../containers";
+import Extras from "../Extras";
 
 export default class Pages extends React.Component {
     pagesComponents = {
         addShareholders: AddShareholder,
-        companyShares: CompanyShares
+        companyShares: CompanyShares,
+        extras: Extras
     };
 
     render() {

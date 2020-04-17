@@ -2,36 +2,8 @@ import { actionTypes } from "./actions";
 
 export const initialState = {
     activePage: 0,
-    pages: ["addShareholders", "companyShares"],
-    shareholders: [
-        {
-            id: 10,
-            firstName: "Claudio",
-            lastName: "Barreira",
-            email: "claudio.barreira@shares.com",
-            share: 0,
-            director: true,
-            error: false
-        },
-        {
-            id: 11,
-            firstName: "Claudio",
-            lastName: "Barreira",
-            email: "claudio.barreira@shares.com",
-            share: 0,
-            director: false,
-            error: false
-        },
-        {
-            id: 12,
-            firstName: "John",
-            lastName: "Doe",
-            email: "john.doe@shares.com",
-            share: 0,
-            director: false,
-            error: false
-        }
-    ],
+    pages: ["addShareholders", "companyShares", "extras"],
+    shareholders: [],
     ids: 1
 };
 
